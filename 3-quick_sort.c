@@ -43,11 +43,13 @@ int partition(int *array, size_t b, size_t e, size_t s)
   */
 void quick_sorter(int *array, size_t b, size_t e, size_t s)
 {
+	size_t i;
+
 	if ((int) b < (int) e)
 	{
-		size_t i = partition(array, b, e, s);
-		quick_sorter(array, i + 1, e, s);
+		i = partition(array, b, e, s);
 		quick_sorter(array, b, i - 1, s);
+		quick_sorter(array, i + 1, e, s);
 	}
 }
 
